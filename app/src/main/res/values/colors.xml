@@ -5,11 +5,16 @@
     <color name="primaryDark">#004ba0</color>
     <color name="primaryDark2">#263A51</color>
     <color name="onPrimaryText">#ffffff</color>
+
     <color name="background">#e2f1fc</color>
     <color name="onBackgroundText">#3B4753</color>
     <color name="onBackground">#BCC9D3</color>
+
     <color name="surface">#fff</color>
     <color name="onSurfaceText">#000</color>
+    <color name="onSurface">#eee</color>
+    <color name="onSurface2">#595B5D</color>
+
     <color name="light">#fff</color>
     <color name="dark">#000</color>
 </resources>

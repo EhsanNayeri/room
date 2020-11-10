@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/mainHead"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.3"
@@ -47,6 +48,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btnStartQuiz"
                     style="@style/fab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -55,6 +57,7 @@
                     app:icon="@drawable/ic_examination" />
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btnQuizHistory"
                     style="@style/fab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -63,11 +66,12 @@
                     app:icon="@drawable/ic_history" />
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/aboutUs"
                     style="@style/fab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:text="درباره ما"
+                    android:text="درباره من"
                     app:icon="@drawable/ic_person" />
             </LinearLayout>
         </ScrollView>
