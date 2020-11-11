@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/SVResult"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/redLight"
+    android:layoutDirection="rtl">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/surface"
+        app:cardCornerRadius="@dimen/card_corner">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/resultScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="60"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/txt_score1" />
+
+                <TextView
+                    android:id="@+id/resultScorePercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="%"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/txt_percent1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/onSurface" />
+
+            <TextView
+                android:id="@+id/txtResultCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="تعداد سوالات :‌ "
+                android:textAlignment="viewStart"
+                android:textColor="@color/onSurfaceText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/onSurface" />
+
+            <TextView
+                android:id="@+id/txtResultAnswerNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="پاسخ داده شده :‌ "
+                android:textAlignment="viewStart"
+                android:textColor="@color/onSurfaceText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/onSurface" />
+
+            <TextView
+                android:id="@+id/txtResultTrueNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="پاسخ های صحیح :‌ "
+                android:textAlignment="viewStart"
+                android:textColor="@color/onSurfaceText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/onSurface" />
+
+            <TextView
+                android:id="@+id/txtMistakeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="پاسخ های اشتباه :‌ "
+                android:textAlignment="viewStart"
+                android:textColor="@color/onSurfaceText" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="32dp"
+                android:background="@color/onSurface" />
+
+            <TextView
+                android:id="@+id/btnResultConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="بسیار خوب"
+                android:textColor="@color/onSurfaceText" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</ScrollView>

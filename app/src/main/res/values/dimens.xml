@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_corner">8dp</dimen>
+    <dimen name="txt_score1">@dimen/_100ssp</dimen>
+    <dimen name="txt_percent1">@dimen/_65ssp</dimen>
+    <dimen name="txt_score2">@dimen/_50ssp</dimen>
+    <dimen name="txt_percent2">@dimen/_40ssp</dimen>
 </resources>

@@ -30,7 +30,7 @@ class FragmentQuiz:MyFragment() {
     private fun setUpButton() {
 
         fabNextQuestion.setOnClickListener {
-
+            act.changeContent(FragmentResult(), false)
         }
 
         fabPrevQuestion.setOnClickListener {
