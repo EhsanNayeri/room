@@ -1,20 +1,17 @@
 package ir.mostafaghanbari.quiz.view.quiz
 
 import android.Manifest
-import android.content.pm.PackageManager
-import android.graphics.drawable.Animatable
 import android.os.Build
 import android.os.Bundle
-import android.os.PatternMatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.PermissionChecker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ir.mostafaghanbari.quiz.R
+import ir.mostafaghanbari.quiz.view.quiz.userList.DialogContacts
 import ir.mostafaghanbari.quiz.view.utils.MyFragment
 import ir.mostafaghanbari.quiz.view.utils.toast
-import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.fragment_user_info.*
 
 class FragmentUserInfo : MyFragment() {
@@ -36,8 +33,7 @@ class FragmentUserInfo : MyFragment() {
 
     private fun setUpButtons() {
         btnStartQuiz.setOnClickListener {
-            //checkUserInputs()
-            startQuiz()
+            checkUserInputs()
         }
 
         fabChooseFromContacts.setOnClickListener {
@@ -52,8 +48,15 @@ class FragmentUserInfo : MyFragment() {
         )
             requestContactPermission()
         else
-            toast("grant detected")
+           showContactList()
 
+    }
+
+    private fun showContactList() {
+        DialogContacts{
+            edtName.setText(it.name)
+            edtFamily.setText(it.family)
+        }
     }
 
     private fun requestContactPermission() {
@@ -61,7 +64,10 @@ class FragmentUserInfo : MyFragment() {
             act.requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS), 1)
         }
         act.permissionResult = { granted ->
-            toast(granted.toString())
+            if(granted)
+                showContactList()
+            else
+                toast("برای انتخاب از لیست کاربران اجازه دسترسی به مخاطبین ضروری است.")
         }
     }
 
