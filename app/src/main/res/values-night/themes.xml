@@ -10,7 +10,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="fab" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+    <style name="extendedFab" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
         <item name="android:tint"> @color/surface </item>
         <item name="backgroundTint"> @color/surface </item>
         <item name="android:textColor">@color/onSurfaceText</item>

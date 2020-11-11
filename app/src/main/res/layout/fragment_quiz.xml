@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabAnswerCounter"
+        style="@style/extendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="2"
+        app:icon="@drawable/ic_check"
+        app:iconGravity="start"
+        app:iconTint="@color/green" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabTimer"
+        style="@style/extendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_toEndOf="@id/fabAnswerCounter"
+        app:iconGravity="start" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/fabTimer"
+        android:layout_alignTop="@id/fabTimer"
+        android:layout_alignEnd="@id/fabTimer"
+        android:layout_alignBottom="@id/fabTimer"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:elevation="8dp">
+
+        <TextView
+            android:id="@+id/txtTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:drawableStart="@drawable/ic_alarm"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="2:10"
+            android:textColor="@color/onSurfaceText"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/timerProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="20dp"
+            android:max="10"
+            android:progress="5" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fabAnswerCounter">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fabAnswerCounter"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="@dimen/card_corner">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="2 از 10"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/onSurfaceText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/onSurface" />
+
+                <TextView
+                    android:text="@string/lorem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/onSurface2"
+                    android:padding="8dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/onSurfaceText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/onSurface" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:textColor="@color/onSurfaceText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="option 1"
+                        android:textAlignment="viewStart" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/onSurface" />
+
+                    <RadioButton
+                        android:textColor="@color/onSurfaceText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="option 2"
+                        android:textAlignment="viewStart" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/onSurface" />
+
+                    <RadioButton
+                        android:textColor="@color/onSurfaceText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="option 3"
+                        android:textAlignment="viewStart" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/onSurface" />
+
+                    <RadioButton
+                        android:textColor="@color/onSurfaceText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:text="option 4"
+                        android:textAlignment="viewStart" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabPrevQuestion"
+        android:theme="@style/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_arrow_right"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNextQuestion"
+        android:theme="@style/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_arrow_left"
+        />
+
+</RelativeLayout>

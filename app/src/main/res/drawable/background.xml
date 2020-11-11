@@ -13,7 +13,7 @@
 
             <group
                 android:pivotX="62"
-                android:pivotY="120"
+                android:pivotY="100"
                 android:rotation="30"
                 android:scaleX="0.08"
                 android:scaleY="0.08">

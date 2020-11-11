@@ -13,8 +13,9 @@
     <color name="surface">#fff</color>
     <color name="onSurfaceText">#000</color>
     <color name="onSurface">#eee</color>
-    <color name="onSurface2">#595B5D</color>
+    <color name="onSurface2">#E5E7EA</color>
 
     <color name="light">#fff</color>
     <color name="dark">#000</color>
+    <color name="green">#4CAF50</color>
 </resources>

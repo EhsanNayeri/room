@@ -7,7 +7,7 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabChooseFromContacts"
-        style="@style/fab"
+        style="@style/extendedFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -17,7 +17,7 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabChooseFromHistory"
-        style="@style/fab"
+        style="@style/extendedFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

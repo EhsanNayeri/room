@@ -22,7 +22,7 @@ class FragmentUserInfo : MyFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = LayoutInflater.from(ctx).inflate(R.layout.fragment_user_info, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_user_info, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -107,7 +107,7 @@ class FragmentUserInfo : MyFragment() {
     }
 
     private fun startQuiz() {
-        act.changeContent(FragmentUserInfo(), true)
+        act.changeContent(FragmentQuiz(), true)
     }
 
 }
