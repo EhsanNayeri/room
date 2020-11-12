@@ -1,10 +1,15 @@
 package ir.mostafaghanbari.quiz.view.quiz
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.transition.ChangeBounds
+import androidx.transition.Fade
+import androidx.transition.TransitionManager
+import androidx.transition.TransitionSet
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ir.mostafaghanbari.quiz.R
 import ir.mostafaghanbari.quiz.model.entities.AnswerModel
@@ -22,7 +27,7 @@ class FragmentQuiz : MyFragment() {
     private var questionNumber = 0 //array index
     private var questionCount = 0
     private var answerCount = 0
-    private val timeInSecond: Long = 5 * 60
+    private val timeInSecond: Long = 60
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -90,6 +95,8 @@ class FragmentQuiz : MyFragment() {
 
     private fun setQuestion() {//questionNumber is array index
 
+        animateQuestionView()
+
         val question = act.questions[questionNumber]
 
         txtQuestion.text = question.question.text
@@ -135,6 +142,12 @@ class FragmentQuiz : MyFragment() {
 
     }
 
+    private fun animateQuestionView() {
+        ObjectAnimator.ofFloat(CVQuestion, View.ALPHA, 1f,0.5f,1f).apply {
+            start()
+        }
+    }
+
     private fun checkAnswerCount(answers: List<AnswerModel>) {
         answers.forEach { answer ->
             if (answer.choosed)
@@ -168,6 +181,7 @@ class FragmentQuiz : MyFragment() {
     }
 
     private fun checkHaveNext() {
+        setTransition()
         if (questionNumber + 1 < questionCount) {
             ++questionNumber
             setQuestion()
@@ -182,6 +196,7 @@ class FragmentQuiz : MyFragment() {
     }
 
     private fun checkHavePrev() {
+        setTransition()
         if (questionNumber > 0) {
             --questionNumber
             setQuestion()
@@ -193,6 +208,16 @@ class FragmentQuiz : MyFragment() {
             fabPrevQuestion.visibility = View.GONE
             fabCloseQuiz.visibility = View.VISIBLE
         }
+    }
+
+    private fun setTransition(){
+        val set = TransitionSet().apply {
+            addTransition(Fade())
+            addTransition(ChangeBounds())
+        }
+
+        TransitionManager.beginDelayedTransition(quizPage, set)
+
     }
 
 }

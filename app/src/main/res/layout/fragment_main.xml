@@ -64,18 +64,20 @@
                     android:layout_margin="16dp"
                     android:text="تاریخچه آزمون ها"
                     app:icon="@drawable/ic_history" />
-
-                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                    android:id="@+id/aboutUs"
-                    style="@style/extendedFab"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:text="درباره من"
-                    app:icon="@drawable/ic_person" />
+                
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
+    
+    <TextView
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="Mostafa Ghanbari"
+        android:textColor="@color/onBackground"
+        />
 
 </RelativeLayout>

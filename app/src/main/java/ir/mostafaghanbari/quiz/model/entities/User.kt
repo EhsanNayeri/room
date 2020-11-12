@@ -37,6 +37,7 @@ data class QuizHistory(
     val mistakesCount: Long = (answersCount - truesCount).toLong()
 }
 
+@Keep
 data class UserHistoryModel(
     @Embedded val user: UserModel,
     @Relation(

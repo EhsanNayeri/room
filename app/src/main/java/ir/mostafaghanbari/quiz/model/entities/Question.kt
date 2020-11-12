@@ -29,6 +29,7 @@ data class AnswerModel(
     var choosed:Boolean = false
 }
 
+@Keep
 data class QuestionAnswersModel(
     @Embedded var question:QuestionModel,
     @Relation(

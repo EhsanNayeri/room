@@ -1,13 +1,14 @@
 package ir.mostafaghanbari.quiz.view.utils
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ir.mostafaghanbari.quiz.App
 import ir.mostafaghanbari.quiz.R
-import ir.mostafaghanbari.quiz.view.quiz.ActivityQuiz
 
 abstract class MyActivity : AppCompatActivity() {
+
+    private var activityState = "pause"
+    private var storedFragment: MyFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,16 +16,30 @@ abstract class MyActivity : AppCompatActivity() {
         App.ctx = this
     }
 
-   open fun changeContent(fragment: MyFragment) {
+    open fun changeContent(fragment: MyFragment) {
+        if (activityState != "alive") {
+            storedFragment = fragment
+            return
+        }
         supportFragmentManager.beginTransaction()
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-            .replace(R.id.quizContent, fragment).commit()
+            .replace(R.id.myActivityContent, fragment).commit()
 
     }
 
     override fun onResume() {
-        App.ctx = this
         super.onResume()
+        App.ctx = this
+        activityState = "alive"
+        if (storedFragment != null) {
+            changeContent(storedFragment!!)
+            storedFragment = null
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        activityState = "pause"
     }
 
 }

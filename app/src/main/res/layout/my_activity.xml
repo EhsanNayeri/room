@@ -14,7 +14,7 @@
         app:srcCompat="@drawable/background" />
 
     <FrameLayout
-        android:id="@+id/quizContent"
+        android:id="@+id/myActivityContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
