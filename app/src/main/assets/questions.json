@@ -6,19 +6,19 @@
     "answers": [
       {
         "text": "AnswerOne",
-        "isAnswer": true
+        "itsAnswer": true
       },
       {
         "text": "AnswerTwo",
-        "isAnswer": false
+        "itsAnswer": false
       },
       {
         "text": "AnswerThree",
-        "isAnswer": false
+        "itsAnswer": false
       },
       {
         "text": "AnswerFour",
-        "isAnswer": false
+        "itsAnswer": false
       }
     ]
   },
@@ -29,19 +29,19 @@
     "answers": [
       {
         "text": "AnswerOne",
-        "isAnswer": false
+        "itsAnswer": false
       },
       {
         "text": "AnswerTwo",
-        "isAnswer": true
+        "itsAnswer": true
       },
       {
         "text": "AnswerThree",
-        "isAnswer": false
+        "itsAnswer": false
       },
       {
         "text": "AnswerFour",
-        "isAnswer": false
+        "itsAnswer": false
       }
     ]
   }

@@ -12,8 +12,8 @@ import ir.mostafaghanbari.quiz.presenter.QuestionPresenter
 import ir.mostafaghanbari.quiz.view.utils.MyFragment
 import ir.mostafaghanbari.quiz.view.utils.startAnimatedVector
 import ir.mostafaghanbari.quiz.view.utils.toast
-import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.fragment_quiz.*
+import kotlinx.android.synthetic.main.my_activity.*
 import java.lang.Math.abs
 
 class FragmentQuiz : MyFragment() {
@@ -23,7 +23,6 @@ class FragmentQuiz : MyFragment() {
     private var questionCount = 0
     private var answerCount = 0
     private val timeInSecond: Long = 5 * 60
-    private lateinit var timer: CountDownTimer
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +45,7 @@ class FragmentQuiz : MyFragment() {
 
     private fun setUpTimer() {
         timerProgress.max = timeInSecond.toInt()
-        timer = object : CountDownTimer(timeInSecond * 1000, 1000) {
+        act.timer = object : CountDownTimer(timeInSecond * 1000, 1000) {
             override fun onFinish() {
                 toast("اتمام زمان آزمون")
                 finishQuiz()
@@ -66,7 +65,7 @@ class FragmentQuiz : MyFragment() {
             showConfirmFinishDialog()
             return
         }
-        timer.cancel()
+        act.timer?.cancel()
         act.quizFinished = true
         act.changeContent(FragmentResult(), true)
     }
@@ -99,7 +98,7 @@ class FragmentQuiz : MyFragment() {
             text = question.answers[0].text
             isChecked = question.answers[0].choosed
             setOnClickListener {
-                startAnimatedVector(act.quizBack)
+                startAnimatedVector(act.mainBack)
                 checkAnswerCount(question.answers)
                 question.answers[0].choosed = true
             }
@@ -108,7 +107,7 @@ class FragmentQuiz : MyFragment() {
             text = question.answers[1].text
             isChecked = question.answers[1].choosed
             setOnClickListener {
-                startAnimatedVector(act.quizBack)
+                startAnimatedVector(act.mainBack)
                 checkAnswerCount(question.answers)
                 question.answers[1].choosed = true
             }
@@ -117,7 +116,7 @@ class FragmentQuiz : MyFragment() {
             text = question.answers[2].text
             isChecked = question.answers[2].choosed
             setOnClickListener {
-                startAnimatedVector(act.quizBack)
+                startAnimatedVector(act.mainBack)
                 checkAnswerCount(question.answers)
                 question.answers[2].choosed = true
             }
@@ -126,7 +125,7 @@ class FragmentQuiz : MyFragment() {
             text = question.answers[3].text
             isChecked = question.answers[3].choosed
             setOnClickListener {
-                startAnimatedVector(act.quizBack)
+                startAnimatedVector(act.mainBack)
                 checkAnswerCount(question.answers)
                 question.answers[3].choosed = true
             }

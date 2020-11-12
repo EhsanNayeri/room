@@ -1,6 +1,7 @@
 package ir.mostafaghanbari.quiz.view.quiz
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
@@ -12,7 +13,7 @@ import ir.mostafaghanbari.quiz.view.utils.MyActivity
 import ir.mostafaghanbari.quiz.view.utils.MyFragment
 import ir.mostafaghanbari.quiz.view.utils.startAnimatedVector
 import ir.mostafaghanbari.quiz.view.utils.stopAnimatedVector
-import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.android.synthetic.main.my_activity.*
 
 class ActivityQuiz : MyActivity() {
 
@@ -20,12 +21,12 @@ class ActivityQuiz : MyActivity() {
     lateinit var questions: List<QuestionAnswersModel>
     lateinit var user: UserModel
     var quizFinished = true
+    var timer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
 
-        changeContent(FragmentQuiz())
+        changeContent(FragmentUserInfo())
 
     }
 
@@ -36,14 +37,12 @@ class ActivityQuiz : MyActivity() {
             return
         }
 
-        supportFragmentManager.beginTransaction()
-            .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-            .replace(R.id.quizContent, fragment).commit()
+        super.changeContent(fragment)
 
     }
 
     private fun startBackAnimation(fragment: MyFragment) {
-        startAnimatedVector(quizBack)
+        startAnimatedVector(mainBack)
         Handler().postDelayed({
             changeContent(fragment)
         }, 500)
@@ -83,8 +82,13 @@ class ActivityQuiz : MyActivity() {
         if (quizFinished) {
             super.onBackPressed()
             this.finish()
-        }else
+        } else
             showConfirmCloseDialog()
+    }
+
+    override fun onDestroy() {
+        timer?.cancel()
+        super.onDestroy()
     }
 
 }

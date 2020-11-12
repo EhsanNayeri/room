@@ -24,7 +24,8 @@ data class UserModel(
 data class QuizHistory(
     var questionsCount: Int,
     var answersCount: Int,
-    var truesCount: Int
+    var truesCount: Int,
+    var totalScore: Int
 ){
     @PrimaryKey(autoGenerate = true) @NonNull
     var historyId: Int = 0
@@ -42,7 +43,7 @@ data class UserHistoryModel(
         parentColumn = "userId",
         entityColumn = "userId"
     )
-    val histories: List<QuizHistory>
+    val historie: QuizHistory
 )
 
 

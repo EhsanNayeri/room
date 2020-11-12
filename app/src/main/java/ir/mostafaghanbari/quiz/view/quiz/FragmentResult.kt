@@ -9,6 +9,7 @@ import ir.mostafaghanbari.quiz.R
 import ir.mostafaghanbari.quiz.model.entities.QuizHistory
 import ir.mostafaghanbari.quiz.presenter.UserPresenter
 import ir.mostafaghanbari.quiz.view.utils.MyFragment
+import ir.mostafaghanbari.quiz.view.utils.getColorBaseScore
 import kotlinx.android.synthetic.main.fragment_result.*
 
 class FragmentResult : MyFragment() {
@@ -39,7 +40,7 @@ class FragmentResult : MyFragment() {
     private fun storeResult() {
         UserPresenter().storeUserHistory(
             act.user,
-            QuizHistory(questionCount, answerCounter, trueCounter)
+            QuizHistory(questionCount, answerCounter, trueCounter, totalScore)
         )
         act.onBackPressed()
     }
@@ -58,7 +59,7 @@ class FragmentResult : MyFragment() {
             }
         }
 
-        totalScore = ((trueCounter / totalScore.toFloat()) * 100).toInt()
+        totalScore = ((trueCounter / questionCount.toFloat()) * 100).toInt()
 
         setUpView()
     }
@@ -78,18 +79,18 @@ class FragmentResult : MyFragment() {
         when (totalScore) {
             in 0..50 -> {
                 SVResult.setBackgroundColor(ContextCompat.getColor(ctx, R.color.redLight))
-                resultScore.setTextColor(ContextCompat.getColor(ctx, R.color.red))
-                resultScorePercent.setTextColor(ContextCompat.getColor(ctx, R.color.red))
+                resultScore.setTextColor(getColorBaseScore(totalScore))
+                resultScorePercent.setTextColor(getColorBaseScore(totalScore))
             }
             in 50..70 -> {
                 SVResult.setBackgroundColor(ContextCompat.getColor(ctx, R.color.orangeLight))
-                resultScore.setTextColor(ContextCompat.getColor(ctx, R.color.orange))
-                resultScorePercent.setTextColor(ContextCompat.getColor(ctx, R.color.orange))
+                resultScore.setTextColor(getColorBaseScore(totalScore))
+                resultScorePercent.setTextColor(getColorBaseScore(totalScore))
             }
             else -> {
                 SVResult.setBackgroundColor(ContextCompat.getColor(ctx, R.color.greenLight))
-                resultScore.setTextColor(ContextCompat.getColor(ctx, R.color.green))
-                resultScorePercent.setTextColor(ContextCompat.getColor(ctx, R.color.green))
+                resultScore.setTextColor(getColorBaseScore(totalScore))
+                resultScorePercent.setTextColor(getColorBaseScore(totalScore))
             }
         }
     }
