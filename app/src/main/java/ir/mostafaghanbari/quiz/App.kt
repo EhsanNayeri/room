@@ -22,11 +22,7 @@ class App : Application() {
             .allowMainThreadQueries()
             .build()
 
-        db.questionDao().deleteAnswers()
-        db.questionDao().deleteQuestions()
-
         checkQuestionStored()
-
     }
 
     private fun checkQuestionStored() {

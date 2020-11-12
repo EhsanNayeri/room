@@ -5,5 +5,5 @@
     <dimen name="txt_percent1">@dimen/_65ssp</dimen>
     <dimen name="txt_score2">@dimen/_50ssp</dimen>
     <dimen name="txt_percent2">@dimen/_40ssp</dimen>
-    <dimen name="txt_normal">@dimen/_10ssp</dimen>
+    <dimen name="txt_normal">@dimen/_13ssp</dimen>
 </resources>

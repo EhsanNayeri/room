@@ -27,7 +27,7 @@ class FragmentQuiz : MyFragment() {
     private var questionNumber = 0 //array index
     private var questionCount = 0
     private var answerCount = 0
-    private val timeInSecond: Long = 60
+    private val timeInSecond: Long = 5 * 60
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,9 +42,45 @@ class FragmentQuiz : MyFragment() {
 
         setUpButton()
 
+        setUpRadios()
+
         getQuestions()
 
         setUpTimer()
+
+    }
+
+    private fun setUpRadios() {
+        rbAnswer1.setOnClickListener {
+            answerChecked(0)
+        }
+
+        rbAnswer2.setOnClickListener {
+            answerChecked(1)
+        }
+
+        rbAnswer3.setOnClickListener {
+            answerChecked(2)
+        }
+
+        rbAnswer4.setOnClickListener {
+            answerChecked(3)
+        }
+
+    }
+
+    private fun answerChecked(answerNumber: Int) {
+        val question = act.questions[questionNumber]
+        val answers = question.answers
+
+        incrementAnswerCounter(answers)
+
+        for(i in answers.indices){
+            answers[i].choosed = answerNumber == i
+        }
+
+        startAnimatedVector(act.mainBack)
+        setQuestion(false)
 
     }
 
@@ -93,49 +129,32 @@ class FragmentQuiz : MyFragment() {
         setQuestion()
     }
 
-    private fun setQuestion() {//questionNumber is array index
+    private fun setQuestion(animate: Boolean = true) {//questionNumber is array index
 
-        animateQuestionView()
+        if (animate)
+            animateQuestionView()
 
         val question = act.questions[questionNumber]
 
         txtQuestion.text = question.question.text
 
+        quizAnswers.clearCheck()
+
         rbAnswer1.apply {
             text = question.answers[0].text
             isChecked = question.answers[0].choosed
-            setOnClickListener {
-                startAnimatedVector(act.mainBack)
-                checkAnswerCount(question.answers)
-                question.answers[0].choosed = true
-            }
         }
         rbAnswer2.apply {
             text = question.answers[1].text
             isChecked = question.answers[1].choosed
-            setOnClickListener {
-                startAnimatedVector(act.mainBack)
-                checkAnswerCount(question.answers)
-                question.answers[1].choosed = true
-            }
         }
         rbAnswer3.apply {
             text = question.answers[2].text
             isChecked = question.answers[2].choosed
-            setOnClickListener {
-                startAnimatedVector(act.mainBack)
-                checkAnswerCount(question.answers)
-                question.answers[2].choosed = true
-            }
         }
         rbAnswer4.apply {
             text = question.answers[3].text
             isChecked = question.answers[3].choosed
-            setOnClickListener {
-                startAnimatedVector(act.mainBack)
-                checkAnswerCount(question.answers)
-                question.answers[3].choosed = true
-            }
         }
 
         txtQuestionNumber.text = "${questionNumber + 1} از $questionCount"
@@ -143,12 +162,12 @@ class FragmentQuiz : MyFragment() {
     }
 
     private fun animateQuestionView() {
-        ObjectAnimator.ofFloat(CVQuestion, View.ALPHA, 1f,0.5f,1f).apply {
+        ObjectAnimator.ofFloat(CVQuestion, View.ALPHA, 1f, 0.5f, 1f).apply {
             start()
         }
     }
 
-    private fun checkAnswerCount(answers: List<AnswerModel>) {
+    private fun incrementAnswerCounter(answers: List<AnswerModel>) {
         answers.forEach { answer ->
             if (answer.choosed)
                 return
@@ -193,6 +212,10 @@ class FragmentQuiz : MyFragment() {
             fabPrevQuestion.visibility = View.VISIBLE
             fabCloseQuiz.visibility = View.GONE
         }
+        if (questionNumber > 0) {
+            fabPrevQuestion.visibility = View.VISIBLE
+            fabCloseQuiz.visibility = View.GONE
+        }
     }
 
     private fun checkHavePrev() {
@@ -208,9 +231,14 @@ class FragmentQuiz : MyFragment() {
             fabPrevQuestion.visibility = View.GONE
             fabCloseQuiz.visibility = View.VISIBLE
         }
+
+        if (questionNumber + 1 < questionCount) {
+            fabFinishQuiz.visibility = View.GONE
+            fabNextQuestion.visibility = View.VISIBLE
+        }
     }
 
-    private fun setTransition(){
+    private fun setTransition() {
         val set = TransitionSet().apply {
             addTransition(Fade())
             addTransition(ChangeBounds())
