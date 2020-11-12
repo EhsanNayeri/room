@@ -1,6 +1,8 @@
 [
   {
-    "text": "Question One",
+    "question": {
+      "text": "Question One"
+    },
     "answers": [
       {
         "text": "AnswerOne",
@@ -21,7 +23,9 @@
     ]
   },
   {
-    "text": "Question Two",
+    "question": {
+      "text": "Question Two"
+    },
     "answers": [
       {
         "text": "AnswerOne",

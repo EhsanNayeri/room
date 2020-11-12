@@ -1,29 +1,42 @@
 package ir.mostafaghanbari.quiz.model.entities
 
 import androidx.annotation.Keep
+import androidx.annotation.NonNull
 import androidx.room.*
 
 @Keep
 @Entity(tableName = "users")
 data class UserModel(
-    @PrimaryKey(autoGenerate = true) val userId: Int,
-    val name: String,
-    val family: String,
-    @Ignore val fullName: String
-)
+    var name: String,
+    var family: String
+) {
+
+    @PrimaryKey(autoGenerate = true) @NonNull
+    var userId: Long = 0
+
+    @Ignore
+    var fullName: String = "$name $family"
+
+}
 
 @Keep
 @Entity(tableName = "histories")
 data class QuizHistory(
-    @PrimaryKey(autoGenerate = true) val historyId: Int,
-    val userId: Int,
-    val questionsCount: Int,
-    val answersCount: Int,
-    val truesCount: Int,
-    @Ignore val mistakesCount: Int
-)
+    var questionsCount: Int,
+    var answersCount: Int,
+    var truesCount: Int
+){
+    @PrimaryKey(autoGenerate = true) @NonNull
+    var historyId: Int = 0
 
-data class UserHistory(
+    @NonNull
+    var userId: Long = 0
+
+    @Ignore
+    val mistakesCount: Long = (answersCount - truesCount).toLong()
+}
+
+data class UserHistoryModel(
     @Embedded val user: UserModel,
     @Relation(
         parentColumn = "userId",
@@ -31,3 +44,10 @@ data class UserHistory(
     )
     val histories: List<QuizHistory>
 )
+
+
+
+
+
+
+

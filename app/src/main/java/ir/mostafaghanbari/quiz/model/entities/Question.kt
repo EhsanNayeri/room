@@ -1,33 +1,39 @@
 package ir.mostafaghanbari.quiz.model.entities
 
 import androidx.annotation.Keep
-import androidx.room.Embedded
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.Relation
+import androidx.annotation.NonNull
+import androidx.room.*
 
 @Keep
 @Entity(tableName = "questions")
 data class QuestionModel(
-    @PrimaryKey(autoGenerate = true) val questionId: Int,
-    val text: String
-)
+    var text: String
+){
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    var questionId: Long = 0
+}
 
 @Keep
 @Entity(tableName = "answers")
 data class AnswerModel(
-    @PrimaryKey(autoGenerate = true) val answerId: Int,
-    val questionId: Int,
-    val text: String,
-    val itsAnswer: Boolean
-)
+    var questionId: Long,
+    var text: String,
+    var itsAnswer: Boolean
+){
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    var answerId: Long = 0
 
+    @Ignore
+    var choosed:Boolean = false
+}
 
 data class QuestionAnswersModel(
-    @Embedded val question:QuestionModel,
+    @Embedded var question:QuestionModel,
     @Relation(
         parentColumn = "questionId",
         entityColumn = "questionId"
     )
-    val answers:List<AnswerModel>
+    var answers:List<AnswerModel>
 )
