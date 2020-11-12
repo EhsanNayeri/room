@@ -27,7 +27,7 @@ class AdapterHistory(
         holder.itemView.apply {
             with(data[position]) {
                 historyUserName.text = user.fullName
-                historyAnswerNumber.text = "${historie.answersCount} از ${historie.questionsCount} پاسخ داده شده"
+                historyAnswerNumber.text = "${historie.answersCount} از ${historie.questionsCount} سوال پاسخ داده شده "
                 historyTrueNumber.text =
                     "${historie.truesCount} پاسخ صحیح و  ${historie.mistakesCount} پاسخ اشتباه"
                 historyScore.text = historie.totalScore.toString()

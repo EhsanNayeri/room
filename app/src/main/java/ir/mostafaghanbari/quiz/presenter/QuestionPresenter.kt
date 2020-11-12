@@ -2,20 +2,12 @@ package ir.mostafaghanbari.quiz.presenter
 
 import com.google.gson.Gson
 import ir.mostafaghanbari.quiz.App
-import ir.mostafaghanbari.quiz.model.entities.AnswerModel
 import ir.mostafaghanbari.quiz.model.entities.QuestionAnswersModel
-import ir.mostafaghanbari.quiz.model.entities.QuestionModel
-import ir.mostafaghanbari.quiz.view.utils.toast
 import org.json.JSONArray
-import java.io.ByteArrayInputStream
 
-class QuestionPresenter(private val listener: QuestionListener? = null) {
+class QuestionPresenter() {
 
     private val dao = App.db.questionDao()
-
-    interface QuestionListener {
-
-    }
 
 
     fun store() {
@@ -30,9 +22,14 @@ class QuestionPresenter(private val listener: QuestionListener? = null) {
 
         val questionAnswers = ArrayList<QuestionAnswersModel>()
 
-        for (i in 0 until jsonArray.length()){
-        val questionAnswer = jsonArray.getJSONObject(i)
-            questionAnswers.add(Gson().fromJson(questionAnswer.toString(), QuestionAnswersModel::class.java))
+        for (i in 0 until jsonArray.length()) {
+            val questionAnswer = jsonArray.getJSONObject(i)
+            questionAnswers.add(
+                Gson().fromJson(
+                    questionAnswer.toString(),
+                    QuestionAnswersModel::class.java
+                )
+            )
         }
 
         val questions = questionAnswers.map { qa -> qa.question }
@@ -49,7 +46,5 @@ class QuestionPresenter(private val listener: QuestionListener? = null) {
     }
 
     fun getQuestions() = dao.getQuestions()
-    fun getAnswers() = dao.getAnswers()
-
 
 }

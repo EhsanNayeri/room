@@ -6,13 +6,9 @@ import ir.mostafaghanbari.quiz.model.entities.UserHistoryModel
 import ir.mostafaghanbari.quiz.model.entities.UserModel
 
 
-class UserPresenter(private val listener: UserListener? = null) {
+class UserPresenter() {
 
     private val dao = App.db.userDao()
-
-    interface UserListener {
-
-    }
 
     fun storeUserHistory(user: UserModel, quizHistory: QuizHistory) {
 

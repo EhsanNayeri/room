@@ -25,11 +25,7 @@ class App : Application() {
         db.questionDao().deleteAnswers()
         db.questionDao().deleteQuestions()
 
-        val x = db.questionDao().getQuestions()
-        val y = db.questionDao().getAnswers()
-
         checkQuestionStored()
-
 
     }
 
