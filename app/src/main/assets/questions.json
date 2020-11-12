@@ -1,46 +1,230 @@
 [
   {
     "question": {
-      "text": "Question One"
+      "text": "پایتخت کشور ایران کدام گزینه است؟"
     },
     "answers": [
       {
-        "text": "AnswerOne",
+        "text": "تهران",
         "itsAnswer": true
       },
       {
-        "text": "AnswerTwo",
+        "text": "مسکو",
         "itsAnswer": false
       },
       {
-        "text": "AnswerThree",
+        "text": "پکن",
         "itsAnswer": false
       },
       {
-        "text": "AnswerFour",
+        "text": "هیچکدام",
         "itsAnswer": false
       }
     ]
   },
   {
     "question": {
-      "text": "Question Two"
+      "text": "مرکز استان سیستان و بلوچستان کدام گزینه است؟"
     },
     "answers": [
       {
-        "text": "AnswerOne",
+        "text": "مشهد",
         "itsAnswer": false
       },
       {
-        "text": "AnswerTwo",
+        "text": "زاهدان",
         "itsAnswer": true
       },
       {
-        "text": "AnswerThree",
+        "text": "بجنورد",
         "itsAnswer": false
       },
       {
-        "text": "AnswerFour",
+        "text": "زابل",
+        "itsAnswer": false
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "موقعیت شهرستان بجنورد؟"
+    },
+    "answers": [
+      {
+        "text": "جنوب",
+        "itsAnswer": false
+      },
+      {
+        "text": "غرب",
+        "itsAnswer": false
+      },
+      {
+        "text": "شمال",
+        "itsAnswer": true
+      },
+      {
+        "text": "شرق",
+        "itsAnswer": false
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "مرکز استان خراسان رضوی کدام گزینه است؟"
+    },
+    "answers": [
+      {
+        "text": "زاهدان",
+        "itsAnswer": false
+      },
+      {
+        "text": "بجنورد",
+        "itsAnswer": false
+      },
+      {
+        "text": "زابل",
+        "itsAnswer": false
+      },
+      {
+        "text": "مشهد",
+        "itsAnswer": true
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "کدام کشور همسایه مرزی ایران نیست؟"
+    },
+    "answers": [
+      {
+        "text": "افغانستان",
+        "itsAnswer": false
+      },
+      {
+        "text": "پاکستان",
+        "itsAnswer": false
+      },
+      {
+        "text": "ژاپن",
+        "itsAnswer": true
+      },
+      {
+        "text": "عراق",
+        "itsAnswer": false
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "کدام خط مرزی عمیق ترین نقاط بستر رود را به هم متصل می کند و در رودهای قابل کشتیرانی، بهترین خط مرزی کدام است ؟"
+    },
+    "answers": [
+      {
+        "text": "خط تالوگ ـ خط تالوگ",
+        "itsAnswer": true
+      },
+      {
+        "text": "خط تالوگ ـ خط منصف",
+        "itsAnswer": false
+      },
+      {
+        "text": "خط منصف ـ خط تالوگ",
+        "itsAnswer": false
+      },
+      {
+        "text": "خط منصف ـ خط منصف",
+        "itsAnswer": false
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "دریاچه هامون در کدام کشور قرار دارد؟"
+    },
+    "answers": [
+      {
+        "text": "افغانستان",
+        "itsAnswer": false
+      },
+      {
+        "text": "پاکستان",
+        "itsAnswer": false
+      },
+      {
+        "text": "عراق",
+        "itsAnswer": false
+      },
+      {
+        "text": "ایران",
+        "itsAnswer": true
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "جوهر ژئوپلیتیک را ... تشکیل میدهد و واژه - پلتیک - به معنای ... است"
+    },
+    "answers": [
+      {
+        "text": "قدرت ـ سیاست",
+        "itsAnswer": true
+      },
+      {
+        "text": "جغرافیا ـ قدرت",
+        "itsAnswer": false
+      },
+      {
+        "text": "قدرت ـ جغرافیا",
+        "itsAnswer": false
+      },
+      {
+        "text": "جغرافیا ـ سیاست",
+        "itsAnswer": false
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "در قرن ...، راتزل که به عنوان پدر علم جغرافیای سیاسی شناخته میشود، نظریه ... را مطرح کرد."
+    },
+    "answers": [
+      {
+        "text": "نوزدهم - فضای حیاتی",
+        "itsAnswer": true
+      },
+      {
+        "text": "یکم - فضای حیاتی",
+        "itsAnswer": false
+      },
+      {
+        "text": "دوم - فضای حیاتی",
+        "itsAnswer": false
+      },
+      {
+        "text": "سوم - فضای حیاتی",
+        "itsAnswer": false
+      }
+    ]
+  },
+  {
+    "question": {
+      "text": "دریاچه ارومیه در کدام استان قرار دارد؟"
+    },
+    "answers": [
+      {
+        "text": "تهران",
+        "itsAnswer": false
+      },
+      {
+        "text": "یزد",
+        "itsAnswer": false
+      },
+      {
+        "text": "هیچکدام",
+        "itsAnswer": true
+      },
+      {
+        "text": "اصفهان",
         "itsAnswer": false
       }
     ]
