@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="2"
+        android:text="0"
         app:icon="@drawable/ic_check"
         app:iconGravity="start"
         app:iconTint="@color/green" />
@@ -87,6 +87,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtQuestionNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
@@ -100,11 +101,12 @@
                     android:background="@color/onSurface" />
 
                 <TextView
-                    android:text="@string/lorem"
+                    android:id="@+id/txtQuestion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/onSurface2"
                     android:padding="8dp"
+                    android:text="@string/lorem"
                     android:textAlignment="viewStart"
                     android:textColor="@color/onSurfaceText" />
 
@@ -119,12 +121,13 @@
                     android:orientation="vertical">
 
                     <RadioButton
-                        android:textColor="@color/onSurfaceText"
+                        android:id="@+id/rbAnswer1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="option 1"
-                        android:textAlignment="viewStart" />
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/onSurfaceText" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -132,12 +135,13 @@
                         android:background="@color/onSurface" />
 
                     <RadioButton
-                        android:textColor="@color/onSurfaceText"
+                        android:id="@+id/rbAnswer2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="option 2"
-                        android:textAlignment="viewStart" />
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/onSurfaceText" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -145,12 +149,13 @@
                         android:background="@color/onSurface" />
 
                     <RadioButton
-                        android:textColor="@color/onSurfaceText"
+                        android:id="@+id/rbAnswer3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="option 3"
-                        android:textAlignment="viewStart" />
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/onSurfaceText" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -158,12 +163,13 @@
                         android:background="@color/onSurface" />
 
                     <RadioButton
-                        android:textColor="@color/onSurfaceText"
+                        android:id="@+id/rbAnswer4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:text="option 4"
-                        android:textAlignment="viewStart" />
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/onSurfaceText" />
 
                 </RadioGroup>
 
@@ -175,23 +181,46 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabPrevQuestion"
-        android:theme="@style/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_arrow_right"
-        />
+        android:theme="@style/fab"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_arrow_right" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabCloseQuiz"
+        style="@style/extendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:text="خروج"
+        app:icon="@drawable/ic_close"
+        app:iconTint="@color/red" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNextQuestion"
-        android:theme="@style/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_arrow_left"
-        />
+        android:theme="@style/fab"
+        app:srcCompat="@drawable/ic_arrow_left" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabFinishQuiz"
+        style="@style/extendedFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:text="پایان آزمون"
+        android:visibility="gone"
+        app:icon="@drawable/ic_check"
+        app:iconTint="@color/green" />
 
 </RelativeLayout>

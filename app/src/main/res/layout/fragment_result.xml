@@ -50,11 +50,11 @@
                 android:background="@color/onSurface" />
 
             <TextView
-                android:id="@+id/txtResultCount"
+                android:id="@+id/resultCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="تعداد سوالات :‌ "
+                android:text="تعداد سوالات :"
                 android:textAlignment="viewStart"
                 android:textColor="@color/onSurfaceText" />
 
@@ -64,11 +64,11 @@
                 android:background="@color/onSurface" />
 
             <TextView
-                android:id="@+id/txtResultAnswerNumber"
+                android:id="@+id/resultAnswerNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="پاسخ داده شده :‌ "
+                android:text="پاسخ داده شده :‌"
                 android:textAlignment="viewStart"
                 android:textColor="@color/onSurfaceText" />
 
@@ -78,11 +78,11 @@
                 android:background="@color/onSurface" />
 
             <TextView
-                android:id="@+id/txtResultTrueNumber"
+                android:id="@+id/resultTrueNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="پاسخ های صحیح :‌ "
+                android:text="پاسخ های صحیح :"
                 android:textAlignment="viewStart"
                 android:textColor="@color/onSurfaceText" />
 
@@ -92,7 +92,7 @@
                 android:background="@color/onSurface" />
 
             <TextView
-                android:id="@+id/txtMistakeNumber"
+                android:id="@+id/resultMistakeNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"

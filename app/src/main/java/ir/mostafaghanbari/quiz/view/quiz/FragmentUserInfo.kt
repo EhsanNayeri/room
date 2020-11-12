@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.content.PermissionChecker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ir.mostafaghanbari.quiz.R
+import ir.mostafaghanbari.quiz.model.entities.UserModel
 import ir.mostafaghanbari.quiz.view.quiz.userList.DialogContacts
 import ir.mostafaghanbari.quiz.view.utils.MyFragment
 import ir.mostafaghanbari.quiz.view.utils.toast
@@ -48,12 +49,12 @@ class FragmentUserInfo : MyFragment() {
         )
             requestContactPermission()
         else
-           showContactList()
+            showContactList()
 
     }
 
     private fun showContactList() {
-        DialogContacts{
+        DialogContacts {
             edtName.setText(it.name)
             edtFamily.setText(it.family)
         }
@@ -64,7 +65,7 @@ class FragmentUserInfo : MyFragment() {
             act.requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS), 1)
         }
         act.permissionResult = { granted ->
-            if(granted)
+            if (granted)
                 showContactList()
             else
                 toast("برای انتخاب از لیست کاربران اجازه دسترسی به مخاطبین ضروری است.")
@@ -91,23 +92,27 @@ class FragmentUserInfo : MyFragment() {
             return
         }
 
-        showSureDialog()
+        val user = UserModel(name, family)
+        showSureDialog(user)
 
     }
 
-    private fun showSureDialog() {
+    private fun showSureDialog(user: UserModel) {
         MaterialAlertDialogBuilder(ctx)
             .setTitle("شروع آزمون")
             .setMessage("آیا از شروع آزمون مطمئن هستید؟")
             .setPositiveButton("بله") { d, w ->
-                startQuiz()
+                startQuiz(user)
             }
             .setNegativeButton("خیر", null)
             .show()
     }
 
-    private fun startQuiz() {
-        act.changeContent(FragmentQuiz(), true)
+    private fun startQuiz(user: UserModel) {
+        act.apply {
+            this.user = user
+            changeContent(FragmentQuiz(), true)
+        }
     }
 
 }

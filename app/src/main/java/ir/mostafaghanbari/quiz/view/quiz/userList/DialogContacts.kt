@@ -98,7 +98,7 @@ class DialogContacts(
                 if (name.isNotEmpty() && fullName.contains(name) ||
                     family.isNotEmpty() && fullName.contains(family)
                 )
-                    result.add(UserModel(1, name, family, fullName))
+                    result.add(UserModel(name, family))
 
 
             } while (data.moveToNext())
