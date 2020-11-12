@@ -19,6 +19,7 @@ import ir.mostafaghanbari.quiz.R
 import ir.mostafaghanbari.quiz.model.entities.UserModel
 import ir.mostafaghanbari.quiz.view.quiz.ActivityQuiz
 import ir.mostafaghanbari.quiz.view.utils.toast
+import kotlinx.android.synthetic.main.dialog_user_list.*
 import kotlinx.android.synthetic.main.dialog_user_list.view.*
 
 class DialogContacts(
@@ -104,11 +105,14 @@ class DialogContacts(
             } while (data.moveToNext())
         }
 
+        v.pbarUserList.visibility = View.GONE
         userAdapter.apply {
             this.data.clear()
             this.data.addAll(result)
             notifyDataSetChanged()
         }
+        if(result.isEmpty())
+            txtEmptyUserList.visibility = View.VISIBLE
 
     }
 

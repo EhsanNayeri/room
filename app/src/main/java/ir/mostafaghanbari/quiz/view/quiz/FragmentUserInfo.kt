@@ -11,6 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import ir.mostafaghanbari.quiz.R
 import ir.mostafaghanbari.quiz.model.entities.UserModel
 import ir.mostafaghanbari.quiz.view.quiz.userList.DialogContacts
+import ir.mostafaghanbari.quiz.view.quiz.userList.DialogUsers
 import ir.mostafaghanbari.quiz.view.utils.MyFragment
 import ir.mostafaghanbari.quiz.view.utils.toast
 import kotlinx.android.synthetic.main.fragment_user_info.*
@@ -41,6 +42,10 @@ class FragmentUserInfo : MyFragment() {
             checkContactPermission()
         }
 
+        fabChooseFromHistory.setOnClickListener {
+            showUserList()
+        }
+
     }
 
     private fun checkContactPermission() {
@@ -55,6 +60,13 @@ class FragmentUserInfo : MyFragment() {
 
     private fun showContactList() {
         DialogContacts {
+            edtName.setText(it.name)
+            edtFamily.setText(it.family)
+        }
+    }
+
+    private fun showUserList() {
+        DialogUsers {
             edtName.setText(it.name)
             edtFamily.setText(it.family)
         }

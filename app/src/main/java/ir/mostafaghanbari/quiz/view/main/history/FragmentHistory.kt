@@ -41,6 +41,10 @@ class FragmentHistory:MyFragment() {
             layoutManager = LinearLayoutManager(ctx)
             adapter = AdapterHistory(histories)
         }
+
+        if(histories.isEmpty())
+            txtEmptyHistory.visibility = View.VISIBLE
+
     }
 
 }

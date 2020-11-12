@@ -2,13 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
-    >
-    <ProgressBar
-        android:id="@+id/pbarUserList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+    android:layoutDirection="rtl">
+
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,4 +50,24 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <ProgressBar
+        android:id="@+id/pbarUserList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="6dp"
+        app:elevation="6dp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txtEmptyUserList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="6dp"
+        android:text="مقداری موجود نیست!"
+        android:textColor="@color/onSurfaceText"
+        app:elevation="6dp" />
+
 </RelativeLayout>

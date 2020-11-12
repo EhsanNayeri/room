@@ -18,4 +18,7 @@ interface UserDAO {
     @Query("SELECT * FROM users")
     fun getUserHistories(): List<UserHistoryModel>
 
+    @Query("SELECT * FROM users GROUP BY name, family")
+    fun getUsers():List<UserModel>
+
 }

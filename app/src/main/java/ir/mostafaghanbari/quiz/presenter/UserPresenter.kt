@@ -21,4 +21,6 @@ class UserPresenter() {
 
     fun getUserHistories() = dao.getUserHistories()
 
+    fun getUsers() = dao.getUsers()
+
 }

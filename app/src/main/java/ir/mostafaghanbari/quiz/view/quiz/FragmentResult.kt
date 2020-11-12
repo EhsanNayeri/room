@@ -31,8 +31,10 @@ class FragmentResult : MyFragment() {
 
         checkScore()
 
+        storeResult()
+
         btnResultConfirm.setOnClickListener {
-            storeResult()
+            act.onBackPressed()
         }
 
     }
@@ -42,7 +44,6 @@ class FragmentResult : MyFragment() {
             act.user,
             QuizHistory(questionCount, answerCounter, trueCounter, totalScore)
         )
-        act.onBackPressed()
     }
 
     private fun checkScore() {
